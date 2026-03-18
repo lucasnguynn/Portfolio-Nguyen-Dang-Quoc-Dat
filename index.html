@@ -80,6 +80,12 @@
             box-shadow: 6px 6px 0px #050A1F;
             transition: all 0.2s ease-in-out;
         }
+        /* Giảm bóng trên mobile cho đỡ chật */
+        @media (max-width: 768px) {
+            .neo-card {
+                box-shadow: 4px 4px 0px #050A1F;
+            }
+        }
         .neo-card:hover {
             transform: translate(-4px, -4px);
             box-shadow: 10px 10px 0px #050A1F;
@@ -136,8 +142,27 @@
             filter: drop-shadow(2px 2px 0px #050A1F);
         }
         .stroke-text {
-            -webkit-text-stroke: 2px #050A1F;
+            -webkit-text-stroke: 1.5px #050A1F;
             color: transparent;
+        }
+        @media (min-width: 768px) {
+            .stroke-text {
+                -webkit-text-stroke: 2px #050A1F;
+            }
+        }
+
+        /* Responsive Iframe Container */
+        .responsive-iframe-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .responsive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         /* Toast Notification Styles */
@@ -161,12 +186,12 @@
 
     <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 top-0 left-0 border-b-4 border-brand-black bg-white/95 backdrop-blur-sm">
-        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-3xl font-display font-bold tracking-tighter text-brand-black hover:text-brand-blue transition-colors">
+        <div class="container mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-2xl sm:text-3xl font-display font-bold tracking-tighter text-brand-black hover:text-brand-blue transition-colors truncate">
                 QUỐC ĐẠT<span class="text-brand-blue">.</span>
             </a>
             
-            <div class="hidden md:flex items-center gap-4">
+            <div class="hidden lg:flex items-center gap-4">
                 <a href="#about" class="font-bold text-brand-black hover:text-brand-blue transition">Giới thiệu</a>
                 <a href="#pillars" class="font-bold text-brand-black hover:text-brand-blue transition">5 Trụ cột</a>
                 <a href="#work" class="font-bold text-brand-black hover:text-brand-blue transition">Dự án</a>
@@ -175,73 +200,73 @@
                     <i class="fas fa-sparkles text-brand-blue mr-1"></i> AI Assistant
                 </a>
             </div>
-             <a href="#contact" class="px-5 py-2 rounded-xl bg-brand-blue text-white font-bold neo-button md:hidden">
+             <a href="#contact" class="px-4 py-2 text-sm sm:text-base rounded-xl bg-brand-blue text-white font-bold neo-button lg:hidden whitespace-nowrap">
                 Kết nối
             </a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header id="about" class="relative pt-32 pb-20 min-h-screen flex items-center overflow-hidden bg-white">
-        <!-- Doodle Elements -->
-        <div class="absolute top-32 left-10 text-6xl doodle-star animate-bounce-slight"><i class="fas fa-star"></i></div>
-        <div class="absolute bottom-32 right-10 text-6xl doodle-star animate-bounce-slight" style="animation-delay: 1s;"><i class="fas fa-certificate"></i></div>
-        <div class="absolute top-40 right-32 text-4xl text-brand-lightblue filter drop-shadow-[2px_2px_0px_#050A1F] rotate-12"><i class="fas fa-heart"></i></div>
+    <header id="about" class="relative pt-28 sm:pt-32 pb-16 sm:pb-20 min-h-[90vh] flex items-center overflow-hidden bg-white">
+        <!-- Doodle Elements (Hidden on very small screens to avoid clutter) -->
+        <div class="hidden sm:block absolute top-32 left-10 text-6xl doodle-star animate-bounce-slight"><i class="fas fa-star"></i></div>
+        <div class="absolute bottom-32 right-5 sm:right-10 text-4xl sm:text-6xl doodle-star animate-bounce-slight" style="animation-delay: 1s;"><i class="fas fa-certificate"></i></div>
+        <div class="hidden md:block absolute top-40 right-32 text-4xl text-brand-lightblue filter drop-shadow-[2px_2px_0px_#050A1F] rotate-12"><i class="fas fa-heart"></i></div>
 
-        <div class="container mx-auto px-6 relative z-10">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="max-w-5xl mx-auto text-center">
                 <!-- Status Badge -->
-                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-pastel border-2 border-brand-black shadow-[4px_4px_0px_#050A1F] mb-10">
-                    <span class="relative flex h-3 w-3">
+                <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-brand-pastel border-2 border-brand-black shadow-[4px_4px_0px_#050A1F] mb-8 sm:mb-10 mx-auto max-w-full">
+                    <span class="relative flex h-3 w-3 shrink-0">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
                       <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-blue border border-brand-black"></span>
                     </span>
-                    <span class="text-sm font-bold font-mono text-brand-black uppercase">Ứng viên Galaxy Campus Friends All-Star 2026</span>
+                    <span class="text-xs sm:text-sm font-bold font-mono text-brand-black uppercase truncate">Ứng viên GCF All-Star 2026</span>
                 </div>
 
-                <!-- Main Title -->
-                <h1 class="text-6xl md:text-8xl lg:text-9xl font-display font-bold leading-none mb-6 text-brand-black tracking-tight">
+                <!-- Main Title: Adjusted text sizes for mobile -->
+                <h1 class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-bold leading-[1.1] mb-6 text-brand-black tracking-tight">
                     MAKE MY <br>
                     <span class="text-brand-blue relative inline-block">
                         VOICE COUNT.
                         <!-- Underline doodle -->
-                        <svg class="absolute w-full h-4 -bottom-2 left-0 text-brand-yellow" viewBox="0 0 100 20" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M0,10 Q50,20 100,5" /></svg>
+                        <svg class="absolute w-full h-3 sm:h-4 -bottom-1 sm:-bottom-2 left-0 text-brand-yellow" viewBox="0 0 100 20" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M0,10 Q50,20 100,5" /></svg>
                     </span>
                 </h1>
 
-                <p class="text-lg md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-10 font-medium mt-8">
-                    Xin chào BTC GCF 2026! Em là Nguyễn Đặng Quốc Đạt (Lucas Nguỹn). <br>
-                    Một Gen Z đam mê Kinh doanh và Media, pha trộn giữa <span class="bg-brand-blue text-white px-2 py-1 rounded border-2 border-brand-black transform -rotate-2 inline-block">Tư duy Chiến lược</span> và 
-                    <span class="bg-brand-yellow text-brand-black px-2 py-1 rounded border-2 border-brand-black transform rotate-2 inline-block">Sự Đột phá Sáng tạo</span>.
+                <p class="text-base sm:text-lg md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-10 font-medium mt-6 sm:mt-8 px-2">
+                    Xin chào BTC GCF 2026! Em là Nguyễn Đặng Quốc Đạt (Lucas Nguỹn). <br class="hidden sm:block">
+                    Một Gen Z đam mê Kinh doanh & Media, pha trộn giữa <span class="bg-brand-blue text-white px-2 py-1 rounded-md border-2 border-brand-black transform -rotate-2 inline-block my-1">Tư duy Chiến lược</span> và 
+                    <span class="bg-brand-yellow text-brand-black px-2 py-1 rounded-md border-2 border-brand-black transform rotate-2 inline-block my-1">Sự Đột phá Sáng tạo</span>.
                 </p>
 
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row justify-center gap-6 reveal">
-                    <a href="#pillars" class="px-8 py-4 bg-brand-blue text-white font-bold rounded-xl neo-button text-lg flex items-center justify-center gap-2">
+                <!-- CTA Buttons: w-full on mobile -->
+                <div class="flex flex-col sm:flex-row w-full max-w-xs sm:max-w-none mx-auto justify-center gap-4 sm:gap-6 reveal">
+                    <a href="#pillars" class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-blue text-white font-bold rounded-xl neo-button text-base sm:text-lg flex items-center justify-center gap-2">
                         Giải mã ĐẠT là ai <i class="fas fa-arrow-down"></i>
                     </a>
-                    <a href="#work" class="px-8 py-4 bg-white text-brand-black border-3 border-brand-black font-bold rounded-xl neo-button text-lg flex items-center justify-center gap-2 hover:bg-brand-yellow">
+                    <a href="#work" class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-brand-black border-3 border-brand-black font-bold rounded-xl neo-button text-base sm:text-lg flex items-center justify-center gap-2 hover:bg-brand-yellow">
                         <i class="fas fa-play"></i> Xem Dự Án
                     </a>
                 </div>
 
-                <!-- Stats Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 reveal">
-                    <div class="neo-card p-6 text-center bg-brand-pastel">
-                        <div class="text-4xl font-display font-bold text-brand-black mb-1">~3.6</div>
-                        <div class="text-sm font-bold font-mono text-brand-blue uppercase">GPA (Quy đổi từ điểm Đức)</div>
+                <!-- Stats Grid: Adjusted gap and padding for mobile -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mt-16 sm:mt-20 reveal">
+                    <div class="neo-card p-4 sm:p-6 text-center bg-brand-pastel">
+                        <div class="text-3xl sm:text-4xl font-display font-bold text-brand-black mb-1">~3.6</div>
+                        <div class="text-[10px] sm:text-sm font-bold font-mono text-brand-blue uppercase">GPA (Quy đổi điểm Đức)</div>
                     </div>
-                    <div class="neo-card p-6 text-center bg-white">
-                        <div class="text-4xl font-display font-bold text-brand-blue mb-1">1M+</div>
-                        <div class="text-sm font-bold font-mono text-brand-black uppercase">Lượt xem Tiktok của trường (Leader)</div>
+                    <div class="neo-card p-4 sm:p-6 text-center bg-white">
+                        <div class="text-3xl sm:text-4xl font-display font-bold text-brand-blue mb-1">1M+</div>
+                        <div class="text-[10px] sm:text-sm font-bold font-mono text-brand-black uppercase">View Tiktok trường (Leader)</div>
                     </div>
-                    <div class="neo-card p-6 text-center bg-brand-yellow">
-                        <div class="text-4xl font-display font-bold text-brand-black mb-1">50+</div>
-                        <div class="text-sm font-bold font-mono text-brand-black uppercase">Thành viên đã quản lý</div>
+                    <div class="neo-card p-4 sm:p-6 text-center bg-brand-yellow">
+                        <div class="text-3xl sm:text-4xl font-display font-bold text-brand-black mb-1">50+</div>
+                        <div class="text-[10px] sm:text-sm font-bold font-mono text-brand-black uppercase">Thành viên đã quản lý</div>
                     </div>
-                    <div class="neo-card p-6 text-center bg-white">
-                        <div class="text-4xl font-display font-bold text-brand-blue mb-1">+♾️</div>
-                        <div class="text-sm font-bold font-mono text-brand-black uppercase">Năng lượng cống hiến</div>
+                    <div class="neo-card p-4 sm:p-6 text-center bg-white">
+                        <div class="text-3xl sm:text-4xl font-display font-bold text-brand-blue mb-1">+♾️</div>
+                        <div class="text-[10px] sm:text-sm font-bold font-mono text-brand-black uppercase">Năng lượng cống hiến</div>
                     </div>
                 </div>
             </div>
@@ -249,65 +274,65 @@
     </header>
 
     <!-- 5 PILLARS SECTION -->
-    <section id="pillars" class="py-24 relative bg-brand-blue border-y-4 border-brand-black overflow-hidden">
+    <section id="pillars" class="py-16 sm:py-24 relative bg-brand-blue border-y-4 border-brand-black overflow-hidden">
         <!-- Floating shapes -->
-        <div class="absolute right-0 top-0 opacity-20 pointer-events-none">
-            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#FFFFFF" d="M45.7,-76.3C58.9,-69.3,69.2,-55.4,78.5,-41C87.8,-26.6,96.1,-11.7,96.6,3.5C97.1,18.7,89.7,34.2,79.5,47.1C69.3,60,56.3,70.3,41.7,78.2C27.1,86.1,11,91.6,-4.8,94.9C-20.6,98.2,-36.1,99.3,-49.8,92.5C-63.5,85.7,-75.4,71,-83.4,55C-91.4,39,-95.5,21.7,-93.4,5.4C-91.3,-10.9,-83,-26.2,-73.3,-39.7C-63.6,-53.2,-52.5,-64.9,-39.6,-72.3C-26.7,-79.7,-12,-82.8,2.7,-87.3C17.4,-91.8,32.5,-83.3,45.7,-76.3Z" transform="translate(100 100)" /></svg>
+        <div class="absolute right-0 top-0 opacity-20 pointer-events-none w-1/2 md:w-auto">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto md:w-[400px] md:h-[400px]"><path fill="#FFFFFF" d="M45.7,-76.3C58.9,-69.3,69.2,-55.4,78.5,-41C87.8,-26.6,96.1,-11.7,96.6,3.5C97.1,18.7,89.7,34.2,79.5,47.1C69.3,60,56.3,70.3,41.7,78.2C27.1,86.1,11,91.6,-4.8,94.9C-20.6,98.2,-36.1,99.3,-49.8,92.5C-63.5,85.7,-75.4,71,-83.4,55C-91.4,39,-95.5,21.7,-93.4,5.4C-91.3,-10.9,-83,-26.2,-73.3,-39.7C-63.6,-53.2,-52.5,-64.9,-39.6,-72.3C-26.7,-79.7,-12,-82.8,2.7,-87.3C17.4,-91.8,32.5,-83.3,45.7,-76.3Z" transform="translate(100 100)" /></svg>
         </div>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <div class="inline-block bg-brand-yellow text-brand-black font-bold font-display px-4 py-2 rounded-lg border-2 border-brand-black shadow-[4px_4px_0px_#050A1F] mb-6 transform -rotate-2">CAMPUS FRIENDS</div>
-                <h2 class="text-5xl md:text-6xl font-display font-bold text-white stroke-text tracking-wider">QUỐC ĐẠT LÀ AI??</h2>
-                <p class="text-white mt-4 text-xl font-medium">5 từ miêu tả về em và định hướng của em tại GCF.</p>
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <div class="inline-block bg-brand-yellow text-brand-black font-bold font-display px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border-2 border-brand-black shadow-[4px_4px_0px_#050A1F] mb-4 sm:mb-6 transform -rotate-2 text-sm sm:text-base">CAMPUS FRIENDS</div>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white stroke-text tracking-wider">QUỐC ĐẠT LÀ AI??</h2>
+                <p class="text-white mt-3 sm:mt-4 text-base sm:text-xl font-medium px-2">5 từ miêu tả về em và định hướng của em tại GCF.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 reveal">
                 <!-- Thấu Hiểu -->
-                <div class="neo-card p-8 group">
-                    <div class="w-16 h-16 rounded-xl bg-brand-pastel border-2 border-brand-black flex items-center justify-center text-brand-blue text-3xl mb-6 shadow-[4px_4px_0px_#050A1F] group-hover:bg-brand-yellow transition-colors">
+                <div class="neo-card p-6 sm:p-8 group flex flex-col h-full">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-brand-pastel border-2 border-brand-black flex items-center justify-center text-brand-blue text-2xl sm:text-3xl mb-4 sm:mb-6 shadow-[4px_4px_0px_#050A1F] group-hover:bg-brand-yellow transition-colors shrink-0">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-brand-black font-display uppercase">THẤU HIỂU</h3>
-                    <p class="text-gray-700 text-base leading-relaxed font-medium">Luôn lắng nghe, chia sẻ và truyền động lực. Gặp gỡ 1:1 với các thành viên để tận dụng triệt để thế mạnh của từng người khi đảm nhận vai trò Leader Đội ngũ Đại sứ.</p>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-brand-black font-display uppercase">THẤU HIỂU</h3>
+                    <p class="text-gray-700 text-sm sm:text-base leading-relaxed font-medium">Luôn lắng nghe, chia sẻ và truyền động lực. Gặp gỡ 1:1 với các thành viên để tận dụng triệt để thế mạnh của từng người khi đảm nhận vai trò Leader Đội ngũ Đại sứ.</p>
                 </div>
                 
                 <!-- Cầu Nối -->
-                <div class="neo-card p-8 group">
-                    <div class="w-16 h-16 rounded-xl bg-brand-pastel border-2 border-brand-black flex items-center justify-center text-brand-blue text-3xl mb-6 shadow-[4px_4px_0px_#050A1F] group-hover:bg-brand-yellow transition-colors">
+                <div class="neo-card p-6 sm:p-8 group flex flex-col h-full">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-brand-pastel border-2 border-brand-black flex items-center justify-center text-brand-blue text-2xl sm:text-3xl mb-4 sm:mb-6 shadow-[4px_4px_0px_#050A1F] group-hover:bg-brand-yellow transition-colors shrink-0">
                         <i class="fas fa-link"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-brand-black font-display uppercase">CẦU NỐI</h3>
-                    <p class="text-gray-700 text-base leading-relaxed font-medium">Luôn muốn gắn kết mọi người. Từ việc xóa bỏ khoảng cách thế hệ trong CLB, đến việc kết nối Ban Giám hiệu với văn hóa mạng xã hội Gen Z đầy sôi động.</p>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-brand-black font-display uppercase">CẦU NỐI</h3>
+                    <p class="text-gray-700 text-sm sm:text-base leading-relaxed font-medium">Luôn muốn gắn kết mọi người. Từ việc xóa bỏ khoảng cách thế hệ trong CLB, đến việc kết nối Ban Giám hiệu với văn hóa mạng xã hội Gen Z đầy sôi động.</p>
                 </div>
 
                 <!-- Đột Phá -->
-                <div class="neo-card p-8 group">
-                    <div class="w-16 h-16 rounded-xl bg-brand-pastel border-2 border-brand-black flex items-center justify-center text-brand-blue text-3xl mb-6 shadow-[4px_4px_0px_#050A1F] group-hover:bg-brand-yellow transition-colors">
+                <div class="neo-card p-6 sm:p-8 group flex flex-col h-full">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-brand-pastel border-2 border-brand-black flex items-center justify-center text-brand-blue text-2xl sm:text-3xl mb-4 sm:mb-6 shadow-[4px_4px_0px_#050A1F] group-hover:bg-brand-yellow transition-colors shrink-0">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-brand-black font-display uppercase">ĐỘT PHÁ</h3>
-                    <p class="text-gray-700 text-base leading-relaxed font-medium">Luôn tìm tòi và hết mình. Phá vỡ định kiến truyền thông truyền thống để mang về cho kênh TikTok VGU mốc 1.138.000 view và tăng tương tác gấp 10 lần.</p>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-brand-black font-display uppercase">ĐỘT PHÁ</h3>
+                    <p class="text-gray-700 text-sm sm:text-base leading-relaxed font-medium">Luôn tìm tòi và hết mình. Phá vỡ định kiến truyền thông truyền thống để mang về cho kênh TikTok VGU mốc 1.138.000 view và tăng tương tác gấp 10 lần.</p>
                 </div>
 
                 <!-- Khơi Nguồn -->
-                <div class="neo-card p-8 group">
-                    <div class="w-16 h-16 rounded-xl bg-brand-pastel border-2 border-brand-black flex items-center justify-center text-brand-blue text-3xl mb-6 shadow-[4px_4px_0px_#050A1F] group-hover:bg-brand-yellow transition-colors">
+                <div class="neo-card p-6 sm:p-8 group flex flex-col h-full lg:col-start-1 lg:col-end-2">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-brand-pastel border-2 border-brand-black flex items-center justify-center text-brand-blue text-2xl sm:text-3xl mb-4 sm:mb-6 shadow-[4px_4px_0px_#050A1F] group-hover:bg-brand-yellow transition-colors shrink-0">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-brand-black font-display uppercase">KHƠI NGUỒN</h3>
-                    <p class="text-gray-700 text-base leading-relaxed font-medium">Dẫn dắt và lan toả năng lượng tích cực. Thành lập & quản lý L7 CAPITAL với hơn 120 thành viên, khơi gợi tinh thần làm phim qua CLB Truyền thông và LIBER.</p>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-brand-black font-display uppercase">KHƠI NGUỒN</h3>
+                    <p class="text-gray-700 text-sm sm:text-base leading-relaxed font-medium">Dẫn dắt và lan toả năng lượng tích cực. Thành lập & quản lý L7 CAPITAL với hơn 120 thành viên, khơi gợi tinh thần làm phim qua CLB Truyền thông và LIBER.</p>
                 </div>
 
                 <!-- Tiên Phong -->
-                <div class="neo-card p-8 md:col-span-2 lg:col-span-2 group bg-brand-yellow">
-                    <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
-                        <div class="w-20 h-20 shrink-0 rounded-xl bg-white border-2 border-brand-black flex items-center justify-center text-brand-black text-4xl shadow-[4px_4px_0px_#050A1F]">
+                <div class="neo-card p-6 sm:p-8 md:col-span-2 lg:col-span-2 group bg-brand-yellow flex flex-col justify-center">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl bg-white border-2 border-brand-black flex items-center justify-center text-brand-black text-3xl sm:text-4xl shadow-[4px_4px_0px_#050A1F]">
                             <i class="fas fa-flag"></i>
                         </div>
                         <div>
-                            <h3 class="text-3xl font-bold mb-2 text-brand-black font-display uppercase">TIÊN PHONG</h3>
-                            <p class="text-brand-black text-lg leading-relaxed font-medium">Dám nghĩ, dám làm. Sinh viên duy nhất làm Host Livestream kéo dài 3 tiếng thu hút 15.000 viewers. Chủ nhiệm tiên phong mô hình CLB Truyền thông tại Đồng Nai.</p>
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-2 text-brand-black font-display uppercase">TIÊN PHONG</h3>
+                            <p class="text-brand-black text-sm sm:text-lg leading-relaxed font-medium">Dám nghĩ, dám làm. Sinh viên duy nhất làm Host Livestream kéo dài 3 tiếng thu hút 15.000 viewers. Chủ nhiệm tiên phong mô hình CLB Truyền thông tại Đồng Nai.</p>
                         </div>
                     </div>
                 </div>
@@ -316,46 +341,51 @@
     </section>
 
     <!-- SELECTED WORKS -->
-    <section id="work" class="py-24 relative bg-white">
+    <section id="work" class="py-16 sm:py-24 relative bg-white overflow-hidden">
         <!-- Doodle Background Pattern -->
         <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23050A1F\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="mb-20 reveal text-center md:text-left">
-                <h2 class="text-5xl md:text-7xl font-display font-bold uppercase text-brand-black tracking-tight">DỰ ÁN <span class="text-brand-blue">NỔI BẬT</span></h2>
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="mb-12 sm:mb-20 reveal text-center md:text-left">
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-display font-bold uppercase text-brand-black tracking-tight">DỰ ÁN <br class="md:hidden"><span class="text-brand-blue">NỔI BẬT</span></h2>
             </div>
 
             <!-- PROJECT 1: VGU TikTok (Highlight) -->
-            <div class="neo-card p-8 md:p-12 mb-24 reveal bg-brand-pastel">
-                <div class="grid lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-4 order-2 lg:order-1 flex justify-center">
-                        <div class="phone-frame w-[280px] h-[520px] relative shadow-[12px_12px_0px_#050A1F] rotate-2 hover:rotate-0 transition duration-500">
-                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@vgu.caitruongmaucam" data-unique-id="vgu.caitruongmaucam" data-embed-type="creator" style="max-width: 100%; min-width: 100%; height: 100%; margin: 0;"> 
-                                <section> <a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@vgu.caitruongmaucam?refer=creator_embed">@vgu.caitruongmaucam</a> </section> 
-                            </blockquote> 
-                            <script async src="https://www.tiktok.com/embed.js"></script>
+            <div class="neo-card p-5 sm:p-8 md:p-12 mb-16 sm:mb-24 reveal bg-brand-pastel">
+                <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    <!-- TikTok Frame: Make it completely responsive -->
+                    <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center w-full">
+                        <div class="phone-frame w-full max-w-[280px] aspect-[9/16] relative shadow-[8px_8px_0px_#050A1F] sm:shadow-[12px_12px_0px_#050A1F] sm:rotate-2 hover:rotate-0 transition duration-500 bg-black flex items-center justify-center">
+                             <!-- Sử dụng container tỉ lệ để ép Iframe ko bị tràn -->
+                             <div class="responsive-iframe-container h-full w-full">
+                                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@vgu.caitruongmaucam" data-unique-id="vgu.caitruongmaucam" data-embed-type="creator" style="max-width: 100%; min-width: 100%; height: 100%; margin: 0;"> 
+                                    <section> <a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@vgu.caitruongmaucam?refer=creator_embed">@vgu.caitruongmaucam</a> </section> 
+                                </blockquote> 
+                                <script async src="https://www.tiktok.com/embed.js"></script>
+                            </div>
                         </div>
                     </div>
-                    <div class="lg:col-span-8 order-1 lg:order-2">
-                        <div class="inline-block px-4 py-2 bg-white text-brand-black font-bold font-mono text-sm uppercase tracking-widest rounded-lg mb-6 border-2 border-brand-black shadow-[4px_4px_0px_#050A1F]">Leader Truyền thông & Đại sứ VGU</div>
-                        <h3 class="text-4xl md:text-5xl font-display font-bold mb-6 text-brand-black">VGU Ambassador Media Team</h3>
-                        <p class="text-gray-800 text-xl mb-8 leading-relaxed font-medium">
+                    
+                    <div class="lg:col-span-7 order-1 lg:order-2">
+                        <div class="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-brand-black font-bold font-mono text-xs sm:text-sm uppercase tracking-widest rounded-lg mb-4 sm:mb-6 border-2 border-brand-black shadow-[4px_4px_0px_#050A1F]">Leader Truyền thông & Đại sứ VGU</div>
+                        <h3 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6 text-brand-black">VGU Ambassador Media Team</h3>
+                        <p class="text-gray-800 text-base sm:text-xl mb-6 sm:mb-8 leading-relaxed font-medium">
                             Lãnh đạo nhóm 20 thành viên sản xuất nội dung mạng xã hội. Bắt trend Gen Z kết hợp Brand Guideline khắt khe của trường học Đức. <br><br>
                             <strong class="bg-brand-yellow px-2 py-1 border-2 border-brand-black inline-block mt-2">Kết quả:</strong> Tăng trưởng tương tác 10 lần, vượt hơn 1.138.000+ views sau 6 tháng.
                         </p>
                         
-                        <div class="flex flex-wrap gap-4 mb-10">
-                            <div class="neo-card p-4 bg-white">
-                                <div class="text-3xl font-bold text-brand-blue mb-1 font-display">1.13M+</div>
-                                <div class="text-xs font-bold text-brand-black uppercase">Tổng lượt xem</div>
+                        <div class="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-10">
+                            <div class="neo-card p-3 sm:p-4 bg-white flex-1 min-w-[130px]">
+                                <div class="text-2xl sm:text-3xl font-bold text-brand-blue mb-1 font-display">1.13M+</div>
+                                <div class="text-[10px] sm:text-xs font-bold text-brand-black uppercase">Tổng lượt xem</div>
                             </div>
-                            <div class="neo-card p-4 bg-white">
-                                <div class="text-3xl font-bold text-brand-blue mb-1 font-display">15,000+</div>
-                                <div class="text-xs font-bold text-brand-black uppercase">Người xem Livestream</div>
+                            <div class="neo-card p-3 sm:p-4 bg-white flex-1 min-w-[130px]">
+                                <div class="text-2xl sm:text-3xl font-bold text-brand-blue mb-1 font-display">15,000+</div>
+                                <div class="text-[10px] sm:text-xs font-bold text-brand-black uppercase">Người xem Live</div>
                             </div>
                         </div>
 
-                        <a href="https://www.tiktok.com/@vgu.caitruongmaucam" target="_blank" rel="noopener noreferrer" class="text-lg font-bold text-white bg-brand-blue px-8 py-4 rounded-xl neo-button inline-flex items-center gap-2">
+                        <a href="https://www.tiktok.com/@vgu.caitruongmaucam" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-base sm:text-lg font-bold text-white bg-brand-blue px-6 sm:px-8 py-3 sm:py-4 rounded-xl neo-button inline-flex items-center justify-center gap-2">
                             <i class="fab fa-tiktok"></i> Trải nghiệm Kênh
                         </a>
                     </div>
@@ -363,92 +393,94 @@
             </div>
 
             <!-- PROJECT GRID: Film & Commercial -->
-            <div class="grid md:grid-cols-2 gap-10 mb-20">
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-10 mb-16 sm:mb-20">
                 <!-- Card 1: LIBER Short Film -->
-                <div class="neo-card p-8 reveal bg-white flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-6">
-                         <div class="w-14 h-14 bg-brand-yellow border-2 border-brand-black rounded-xl flex items-center justify-center text-brand-black text-2xl shadow-[4px_4px_0px_#050A1F]">
+                <div class="neo-card p-5 sm:p-8 reveal bg-white flex flex-col h-full w-full overflow-hidden">
+                    <div class="flex flex-wrap gap-4 justify-between items-start mb-6">
+                         <div class="w-12 h-12 sm:w-14 sm:h-14 bg-brand-yellow border-2 border-brand-black rounded-xl flex items-center justify-center text-brand-black text-xl sm:text-2xl shadow-[4px_4px_0px_#050A1F] shrink-0">
                             <i class="fas fa-video"></i>
                          </div>
-                         <span class="text-sm font-bold font-mono text-brand-black bg-brand-pastel border-2 border-brand-black px-4 py-1.5 rounded-lg shadow-[2px_2px_0px_#050A1F]">Đạo diễn</span>
+                         <span class="text-xs sm:text-sm font-bold font-mono text-brand-black bg-brand-pastel border-2 border-brand-black px-3 py-1 sm:px-4 sm:py-1.5 rounded-lg shadow-[2px_2px_0px_#050A1F]">Đạo diễn</span>
                     </div>
-                    <h3 class="text-3xl font-bold mb-4 text-brand-black font-display">Phim ngắn LIBER</h3>
-                    <p class="text-gray-700 text-lg mb-6 flex-grow font-medium">Định hướng và biên kịch và đạo diễn sản xuất với hơn 18 diễn viên.</p>
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-brand-black font-display">Phim ngắn LIBER</h3>
+                    <p class="text-gray-700 text-sm sm:text-lg mb-6 flex-grow font-medium">Định hướng, biên kịch và đạo diễn sản xuất với hơn 18 diễn viên.</p>
                     
-                    <!-- Embedded Facebook Video -->
-                    <div class="aspect-video w-full rounded-xl overflow-hidden border-4 border-brand-black mb-4 relative bg-black">
-                         <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FVGUReadInspiredClubLIBER%2Fvideos%2F957857266360303%2F&show_text=false&width=560&t=0" class="w-full h-full" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <!-- Embedded Facebook Video Fix: Responsive Aspect Ratio -->
+                    <div class="responsive-iframe-container pt-[56.25%] rounded-xl overflow-hidden border-3 sm:border-4 border-brand-black mb-4 bg-black">
+                         <!-- Bỏ width cứng trong URL, ép 100% bằng CSS class -->
+                         <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FVGUReadInspiredClubLIBER%2Fvideos%2F957857266360303%2F&show_text=false" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
 
-                    <!-- Nút liên kết dự án Chuyện Có Tích -->
-                    <a href="https://www.facebook.com/share/v/1BMQMz1FJL/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 mb-6 bg-brand-pastel border-2 border-brand-black rounded-lg text-brand-black font-bold neo-button text-sm inline-flex items-center gap-2 w-fit hover:bg-brand-yellow transition-colors">
-                        <i class="fas fa-external-link-alt"></i> Xem thêm phim ngắn cổ tích: "Sự tích dưa hấu"
+                    <!-- Nút liên kết -->
+                    <a href="https://www.facebook.com/share/v/1BMQMz1FJL/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-4 py-3 mb-6 bg-brand-pastel border-2 border-brand-black rounded-lg text-brand-black font-bold neo-button text-xs sm:text-sm flex justify-center items-center gap-2 hover:bg-brand-yellow transition-colors text-center">
+                        <i class="fas fa-external-link-alt"></i> Phim cổ tích: "Sự tích dưa hấu"
                     </a>
 
-                    <div class="text-base text-gray-800 font-medium"><strong class="text-brand-blue">Thành tựu:</strong> Các dự án đều đạt 15K-17K+ lượt xem, quảng bá và lan toả thành công văn hóa đọc, nét đẹp bản sắc dân tộc được gìn giữ qua truyện cổ tích cho sinh viên/ học sinh trong trường.</div>
+                    <div class="text-sm sm:text-base text-gray-800 font-medium mt-auto"><strong class="text-brand-blue">Thành tựu:</strong> Các dự án đều đạt 15K-17K+ lượt xem, quảng bá văn hóa đọc và bản sắc dân tộc.</div>
                 </div>
 
                 <!-- Card 2: Hoang Thien Phuc & Lucky Tree -->
-                <div class="neo-card p-8 reveal bg-white flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-6">
-                         <div class="w-14 h-14 bg-brand-blue border-2 border-brand-black rounded-xl flex items-center justify-center text-white text-2xl shadow-[4px_4px_0px_#050A1F]">
+                <div class="neo-card p-5 sm:p-8 reveal bg-white flex flex-col h-full w-full overflow-hidden">
+                    <div class="flex flex-wrap gap-4 justify-between items-start mb-6">
+                         <div class="w-12 h-12 sm:w-14 sm:h-14 bg-brand-blue border-2 border-brand-black rounded-xl flex items-center justify-center text-white text-xl sm:text-2xl shadow-[4px_4px_0px_#050A1F] shrink-0">
                             <i class="fas fa-briefcase"></i>
                          </div>
-                         <span class="text-sm font-bold font-mono text-brand-black bg-brand-yellow border-2 border-brand-black px-4 py-1.5 rounded-lg shadow-[2px_2px_0px_#050A1F]">Kinh doanh & Cộng đồng</span>
+                         <span class="text-xs sm:text-sm font-bold font-mono text-brand-black bg-brand-yellow border-2 border-brand-black px-3 py-1 sm:px-4 sm:py-1.5 rounded-lg shadow-[2px_2px_0px_#050A1F]">Kinh doanh</span>
                     </div>
-                    <h3 class="text-3xl font-bold mb-4 text-brand-black font-display">Start Up & Organization Founder</h3>
-                    <p class="text-gray-700 text-lg mb-6 flex-grow font-medium">Founder của Lucky Tree từng đạt kỷ lục doanh thu 42tr/tháng. Founder của cộng đồng tài chính - đầu tư vàng với số lượng thành viên vào thời điểm kỷ lục là hơn 142 thành viên.</p>
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-brand-black font-display">Start Up & Community</h3>
+                    <p class="text-gray-700 text-sm sm:text-lg mb-6 flex-grow font-medium">Founder Lucky Tree (Kỷ lục 42tr/tháng). Founder cộng đồng tài chính với hơn 142 thành viên hoạt động sôi nổi.</p>
                     
-                    <!-- Embedded Facebook Post -->
-                    <div class="w-full rounded-xl overflow-hidden border-4 border-brand-black mb-4 relative bg-white flex justify-center">
-                         <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fllucky.dtt%2Fposts%2Fpfbid024uadYkvMYkBLv4pNjMoQHqHTyHHRHfDm1rxdZwNqg9ds2gphyeLkXzzcn3Ee2ajol&show_text=true&width=500" width="100%" height="250" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <!-- Embedded Facebook Post Fix: Responsive Container -->
+                    <div class="responsive-iframe-container h-[250px] sm:h-[300px] rounded-xl overflow-hidden border-3 sm:border-4 border-brand-black mb-4 bg-white">
+                         <!-- Bỏ width cứng trong URL -->
+                         <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fllucky.dtt%2Fposts%2Fpfbid024uadYkvMYkBLv4pNjMoQHqHTyHHRHfDm1rxdZwNqg9ds2gphyeLkXzzcn3Ee2ajol&show_text=true" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
 
-                    <!-- Nút liên kết dự án Commercial -->
-                    <a href="https://www.facebook.com/Eco.Garden.Group" target="_blank" rel="noopener noreferrer" class="px-5 py-3 mb-6 bg-brand-pastel border-2 border-brand-black rounded-lg text-brand-black font-bold neo-button text-sm inline-flex items-center gap-2 w-fit hover:bg-brand-yellow transition-colors">
-                        <i class="fas fa-external-link-alt"></i> Xem thêm Cộng đồng Tài chính: "L7 Capital"
+                    <!-- Nút liên kết -->
+                    <a href="https://www.facebook.com/Eco.Garden.Group" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-4 py-3 mb-6 bg-brand-pastel border-2 border-brand-black rounded-lg text-brand-black font-bold neo-button text-xs sm:text-sm flex justify-center items-center gap-2 hover:bg-brand-yellow transition-colors text-center">
+                        <i class="fas fa-external-link-alt"></i> Cộng đồng Tài chính: "L7 Capital"
                     </a>
 
-                   <div class="text-base text-gray-800 font-medium"><strong class="text-brand-blue">Kỹ năng:</strong> Sales, chăm sóc khách hàng, budgeting, xử lý tình huống và phân tích tài chính.</div>
+                   <div class="text-sm sm:text-base text-gray-800 font-medium mt-auto"><strong class="text-brand-blue">Kỹ năng:</strong> Sales, CSKH, budgeting, xử lý tình huống và phân tích tài chính.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- THE "MY STORY" HIGHLIGHT -->
-    <section id="story" class="py-24 bg-brand-blue border-y-4 border-brand-black">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto neo-card bg-white p-8 md:p-14 reveal relative">
+    <section id="story" class="py-16 sm:py-24 bg-brand-blue border-y-4 border-brand-black px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto neo-card bg-white p-6 sm:p-10 md:p-14 reveal relative">
                 <!-- Pin doodle -->
-                <div class="absolute -top-6 -left-6 text-5xl text-brand-yellow filter drop-shadow-[2px_2px_0px_#050A1F] transform -rotate-12">
+                <div class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 text-4xl sm:text-5xl text-brand-yellow filter drop-shadow-[2px_2px_0px_#050A1F] transform -rotate-12">
                     <i class="fas fa-thumbtack"></i>
                 </div>
 
-                <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-10 border-b-4 border-brand-black pb-8">
-                    <div class="w-20 h-20 bg-brand-yellow border-4 border-brand-black rounded-full flex items-center justify-center text-brand-black text-3xl shadow-[4px_4px_0px_#050A1F]">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-8 sm:mb-10 border-b-4 border-brand-black pb-6 sm:pb-8">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-brand-yellow border-3 sm:border-4 border-brand-black rounded-full flex items-center justify-center text-brand-black text-2xl sm:text-3xl shadow-[4px_4px_0px_#050A1F]">
                         <i class="fas fa-star"></i>
                     </div>
                     <div>
-                        <h2 class="text-4xl md:text-5xl font-display font-bold text-brand-black mb-2 uppercase">Dự Án Ấn Tượng Nhất</h2>
-                        <p class="text-brand-blue font-bold text-xl uppercase tracking-widest">Hành trình khẳng định vị thế</p>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-brand-black mb-1 sm:mb-2 uppercase">Dự Án Ấn Tượng Nhất</h2>
+                        <p class="text-brand-blue font-bold text-sm sm:text-xl uppercase tracking-widest">Hành trình khẳng định vị thế</p>
                     </div>
                 </div>
 
-                <div class="prose max-w-none text-gray-800 text-lg leading-relaxed space-y-6 font-medium">
+                <div class="prose max-w-none text-gray-800 text-base sm:text-lg leading-relaxed space-y-4 sm:space-y-6 font-medium">
                     <p>
-                        Trở thành <strong class="text-brand-blue">Trưởng nhóm Truyền thông Đội ngũ Đại sứ VGU</strong> ngay từ năm nhất, em đối mặt với 2 bài toán khó: Nhận được sự công nhận từ tập thể các anh chị khóa trên, và xây dựng kênh truyền thông viral giữa môi trường văn hóa đại học Đức mang tính học thuật nghiêm túc.
+                        Trở thành <strong class="text-brand-blue">Trưởng nhóm Truyền thông Đại sứ VGU</strong> ngay từ năm nhất, em đối mặt với 2 bài toán khó: Nhận được sự công nhận từ tập thể các anh chị khóa trên, và xây dựng kênh truyền thông viral giữa môi trường văn hóa đại học Đức mang tính học thuật nghiêm túc.
                     </p>
                     <p>
-                        Em đã giải quyết bằng sự <strong class="bg-brand-pastel px-2 border-2 border-brand-black rounded inline-block transform rotate-1">Chân thành & Chuyên môn</strong>. Từ việc tự học edit, góc quay qua YouTube/TikTok cho đến việc gặp 1:1 và mở form ẩn danh để thấu hiểu từng thành viên. Nhờ đó, cả team gạt bỏ khoảng cách thế hệ.
+                        Em đã giải quyết bằng sự <strong class="bg-brand-pastel px-2 py-0.5 border-2 border-brand-black rounded inline-block transform rotate-1 my-1">Chân thành & Chuyên môn</strong>. Từ việc tự học edit, góc quay qua YouTube/TikTok cho đến việc gặp 1:1 và mở form ẩn danh để thấu hiểu từng thành viên. Nhờ đó, cả team gạt bỏ khoảng cách thế hệ.
                     </p>
                     <p>
-                        Đối diện với rào cản từ Ban Giám hiệu về văn hóa mạng xã hội, em đã kiên trì suốt 2 tháng dùng số liệu đo lường, case study thực tế để chứng minh: <em>"Gen Z không 'cợt nhã' như những người lớn nghĩ mà họ chỉ đang thay đổi cách tiếp cận trẻ trung và hiệu quả hơn"</em>.
+                        Đối diện với rào cản từ Ban Giám hiệu về văn hóa mạng xã hội, em đã kiên trì suốt 2 tháng dùng số liệu đo lường, case study thực tế để chứng minh: <em>"Gen Z không 'cợt nhã' như người lớn nghĩ, họ chỉ đang thay đổi cách tiếp cận trẻ trung và hiệu quả hơn"</em>.
                     </p>
                     
-                    <div class="mt-10 p-8 border-4 border-brand-black bg-brand-yellow rounded-2xl shadow-[6px_6px_0px_#050A1F] relative transform md:rotate-1">
-                        <i class="fas fa-quote-left absolute -top-5 -left-4 text-4xl text-white filter drop-shadow-[2px_2px_0px_#050A1F]"></i>
-                        <p class="text-brand-black text-xl italic font-bold">
-                            "Từ một cá nhân đam mê sáng tạo, em trở thành một đại sứ sinh viên đúng nghĩa. Đó chính là tinh thần <strong>Truyền cảm hứng - Kiến tạo tương lai</strong> mà em nhìn thấy ở Samsung, và là khát khao để mình trở thành Galaxy Campus Friends All Star 2026."
+                    <div class="mt-8 sm:mt-10 p-5 sm:p-8 border-3 sm:border-4 border-brand-black bg-brand-yellow rounded-xl sm:rounded-2xl shadow-[4px_4px_0px_#050A1F] sm:shadow-[6px_6px_0px_#050A1F] relative transform md:rotate-1">
+                        <i class="fas fa-quote-left absolute -top-4 -left-2 sm:-top-5 sm:-left-4 text-3xl sm:text-4xl text-white filter drop-shadow-[2px_2px_0px_#050A1F]"></i>
+                        <p class="text-brand-black text-lg sm:text-xl italic font-bold">
+                            "Từ một cá nhân đam mê sáng tạo, em trở thành một đại sứ sinh viên đúng nghĩa. Đó chính là tinh thần <strong>Truyền cảm hứng - Kiến tạo tương lai</strong> mà em nhìn thấy ở Samsung, và là khát khao để mình trở thành GCF All Star 2026."
                         </p>
                     </div>
                 </div>
@@ -457,51 +489,51 @@
     </section>
 
     <!-- GEMINI AI PLAYGROUND SECTION ✨ -->
-    <section id="ai-playground" class="py-24 relative overflow-hidden bg-[#F8F9FA]">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <span class="px-6 py-2 rounded-xl border-2 border-brand-black bg-brand-lightblue text-white text-base font-bold font-display uppercase shadow-[4px_4px_0px_#050A1F] mb-6 inline-block transform -rotate-2">Tính năng Đặc biệt</span>
-                <h2 class="text-5xl md:text-7xl font-display font-bold mb-6 text-brand-black uppercase">
-                    Trợ lý ảo <br> <span class="text-brand-blue underline decoration-brand-yellow decoration-8 underline-offset-8">Mini Quắc Đạc</span>
+    <section id="ai-playground" class="py-16 sm:py-24 relative overflow-hidden bg-[#F8F9FA]">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-10 sm:mb-16 reveal">
+                <span class="px-4 sm:px-6 py-1.5 sm:py-2 rounded-xl border-2 border-brand-black bg-brand-lightblue text-white text-xs sm:text-base font-bold font-display uppercase shadow-[4px_4px_0px_#050A1F] mb-4 sm:mb-6 inline-block transform -rotate-2">Tính năng Đặc biệt</span>
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-4 sm:mb-6 text-brand-black uppercase">
+                    Trợ lý ảo <br> <span class="text-brand-blue underline decoration-brand-yellow decoration-4 sm:decoration-8 underline-offset-4 sm:underline-offset-8">Mini Quắc Đạc</span>
                 </h2>
-                <p class="text-gray-700 max-w-2xl mx-auto text-xl font-medium">
-                    Tích hợp AI API để tái tạo tư duy sáng tạo của chính em. BTC có thể nhập một từ bất kỳ và em lên 1 ý tưởng Content chỉ dành riêng cho anh/chị!
+                <p class="text-gray-700 max-w-2xl mx-auto text-base sm:text-xl font-medium px-2">
+                    Tích hợp AI API để tái tạo tư duy sáng tạo của em. BTC nhập một từ khóa bất kỳ và em lên 1 ý tưởng Content ngay nhé!
                 </p>
             </div>
 
             <!-- AI Interface -->
             <div class="max-w-4xl mx-auto reveal">
-                <div class="neo-card p-8 md:p-10 bg-white relative">
+                <div class="neo-card p-5 sm:p-8 md:p-10 bg-white relative">
                     <!-- Decor -->
-                    <div class="absolute -right-6 -top-6 text-6xl text-brand-lightblue filter drop-shadow-[2px_2px_0px_#050A1F] rotate-12 hidden md:block"><i class="fas fa-bolt"></i></div>
+                    <div class="absolute -right-4 -top-4 sm:-right-6 sm:-top-6 text-5xl sm:text-6xl text-brand-lightblue filter drop-shadow-[2px_2px_0px_#050A1F] rotate-12 hidden md:block"><i class="fas fa-bolt"></i></div>
 
-                    <!-- Input Area -->
-                    <div class="flex flex-col md:flex-row gap-4 mb-8">
-                        <input type="text" id="topicInput" placeholder="VD: Samsung Galaxy S26, Galaxy AI..." 
-                            class="flex-1 bg-white border-3 border-brand-black rounded-xl px-6 py-4 text-brand-black focus:outline-none focus:ring-4 focus:ring-brand-pastel transition-all text-lg font-bold placeholder-gray-400 shadow-[4px_4px_0px_#050A1F]">
+                    <!-- Input Area: Stack on mobile, row on larger screens -->
+                    <div class="flex flex-col md:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
+                        <input type="text" id="topicInput" placeholder="VD: S26, AI..." 
+                            class="flex-1 bg-white border-2 sm:border-3 border-brand-black rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-brand-black focus:outline-none focus:ring-4 focus:ring-brand-pastel transition-all text-base sm:text-lg font-bold placeholder-gray-400 shadow-[4px_4px_0px_#050A1F]">
                         <button onclick="generateIdeas()" id="generateBtn"
-                            class="px-8 py-4 bg-brand-blue text-white hover:bg-brand-yellow hover:text-brand-black font-bold font-display uppercase rounded-xl neo-button text-lg flex items-center justify-center gap-2 shrink-0">
+                            class="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-blue text-white hover:bg-brand-yellow hover:text-brand-black font-bold font-display uppercase rounded-xl neo-button text-base sm:text-lg flex items-center justify-center gap-2 shrink-0">
                             <i class="fas fa-magic"></i> Tạo Idea
                         </button>
                     </div>
 
                     <!-- Loading State -->
-                    <div id="loadingState" class="hidden text-center py-16 bg-brand-pastel border-2 border-brand-black rounded-xl border-dashed">
-                        <div class="inline-block w-14 h-14 border-4 border-brand-blue border-t-transparent rounded-full animate-spin mb-4"></div>
-                        <p class="text-brand-black font-bold text-lg font-mono animate-pulse uppercase">Mini Quắc Đạc đang "vắt óc" suy nghĩ...</p>
+                    <div id="loadingState" class="hidden text-center py-10 sm:py-16 bg-brand-pastel border-2 border-brand-black rounded-xl border-dashed">
+                        <div class="inline-block w-10 h-10 sm:w-14 sm:h-14 border-4 border-brand-blue border-t-transparent rounded-full animate-spin mb-3 sm:mb-4"></div>
+                        <p class="text-brand-black font-bold text-sm sm:text-lg font-mono animate-pulse uppercase px-4">Mini Quắc Đạc đang "vắt óc" suy nghĩ...</p>
                     </div>
 
                     <!-- Result Area -->
                     <div id="resultArea" class="hidden">
-                        <div class="bg-[#F8F9FA] rounded-xl p-8 border-3 border-brand-black ai-output prose max-w-none shadow-[inset_4px_4px_0px_rgba(0,0,0,0.05)]">
+                        <div class="bg-[#F8F9FA] rounded-xl p-4 sm:p-8 border-2 sm:border-3 border-brand-black ai-output prose max-w-none text-sm sm:text-base shadow-[inset_4px_4px_0px_rgba(0,0,0,0.05)] overflow-x-auto">
                             <!-- Content will be injected here -->
                         </div>
                     </div>
 
                     <!-- Empty State Hint -->
-                    <div id="emptyState" class="text-center py-12 bg-gray-50 border-2 border-brand-black border-dashed rounded-xl">
-                        <i class="fas fa-brain text-6xl mb-6 text-brand-pastel filter drop-shadow-[2px_2px_0px_#050A1F]"></i>
-                        <p class="text-lg font-bold text-gray-600">Trải nghiệm tư duy "Đột Phá" & "Tiên Phong" của em ngay tại đây!</p>
+                    <div id="emptyState" class="text-center py-8 sm:py-12 bg-gray-50 border-2 border-brand-black border-dashed rounded-xl px-4">
+                        <i class="fas fa-brain text-4xl sm:text-6xl mb-4 sm:mb-6 text-brand-pastel filter drop-shadow-[2px_2px_0px_#050A1F]"></i>
+                        <p class="text-base sm:text-lg font-bold text-gray-600">Trải nghiệm tư duy "Đột Phá" & "Tiên Phong" của em ngay tại đây!</p>
                     </div>
 
                 </div>
@@ -510,24 +542,24 @@
     </section>
 
     <!-- FOOTER & CONTACT -->
-    <footer id="contact" class="bg-brand-black py-20 border-t-8 border-brand-blue relative overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <h2 class="text-5xl md:text-8xl font-display font-bold mb-10 uppercase tracking-tighter text-white">
+    <footer id="contact" class="bg-brand-black py-16 sm:py-20 border-t-8 border-brand-blue relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10 text-center">
+            <h2 class="text-4xl sm:text-6xl md:text-8xl font-display font-bold mb-8 sm:mb-10 uppercase tracking-tighter text-white">
                 SẴN SÀNG CHO <br> <span class="text-brand-yellow">HÀNH TRÌNH MỚI.</span>
             </h2>
             
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mt-12 mb-20">
-                <a href="mailto:cv.nguyendangquocdat@gmail.com" class="px-8 py-5 bg-white text-brand-black font-bold text-xl rounded-xl neo-button flex items-center gap-3">
-                    <i class="fas fa-envelope text-brand-blue"></i> cv.nguyendangquocdat@gmail.com
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-8 sm:mt-12 mb-16 sm:mb-20">
+                <a href="mailto:cv.nguyendangquocdat@gmail.com" class="w-full sm:w-auto px-6 py-4 sm:py-5 bg-white text-brand-black font-bold text-sm sm:text-xl rounded-xl neo-button flex items-center justify-center gap-3 truncate">
+                    <i class="fas fa-envelope text-brand-blue shrink-0"></i> <span class="truncate">Gửi Email ngay</span>
                 </a>
-                <a href="tel:0927542288" class="px-8 py-5 bg-brand-yellow text-brand-black font-bold text-xl rounded-xl neo-button flex items-center gap-3">
-                    <i class="fas fa-phone"></i> Liên hệ trực tiếp
+                <a href="tel:0927542288" class="w-full sm:w-auto px-6 py-4 sm:py-5 bg-brand-yellow text-brand-black font-bold text-sm sm:text-xl rounded-xl neo-button flex items-center justify-center gap-3">
+                    <i class="fas fa-phone shrink-0"></i> Liên hệ: 092 754 2288
                 </a>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-300 font-bold border-t-2 border-white/20 pt-10">
-                <div class="text-center md:text-left">© 2026 Nguyễn Đặng Quốc Đạt. <br> <span class="text-brand-pastel">Designed for Samsung Galaxy Campus Friends.</span></div>
-                <div class="flex gap-4 text-3xl">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs sm:text-sm text-gray-300 font-bold border-t-2 border-white/20 pt-8 sm:pt-10">
+                <div class="text-center md:text-left leading-relaxed">© 2026 Nguyễn Đặng Quốc Đạt. <br class="md:hidden"> <span class="text-brand-pastel">Designed for Samsung Galaxy Campus Friends.</span></div>
+                <div class="flex gap-4 sm:gap-5 text-2xl sm:text-3xl">
                     <a href="https://www.facebook.com/share/1Fon4sFEP2/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link hover:text-brand-lightblue transition transform hover:-translate-y-1"><i class="fab fa-facebook-square"></i></a>
                     <a href="https://www.instagram.com/lucas.nguyn_?igsh=MTB4OWlwd282em5mcQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link hover:text-[#FF00AA] transition transform hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.tiktok.com/@lucas.nguyen_?_r=1&_t=ZS-94IQvEsCui0" target="_blank" rel="noopener noreferrer" class="social-link hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok"></i></a>
@@ -538,8 +570,8 @@
     </footer>
 
     <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-brand-black text-white px-6 py-4 rounded-xl border-2 border-brand-yellow shadow-[4px_4px_0px_#FFBA08] font-bold z-[100] flex items-center gap-3 max-w-sm">
-        <i class="fas fa-check-circle text-brand-yellow text-xl"></i>
+    <div id="toast" class="fixed bottom-5 right-5 left-5 sm:left-auto bg-brand-black text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl border-2 border-brand-yellow shadow-[4px_4px_0px_#FFBA08] font-bold z-[100] flex items-center gap-3 max-w-sm mx-auto sm:mx-0 text-sm sm:text-base">
+        <i class="fas fa-check-circle text-brand-yellow text-xl shrink-0"></i>
         <span id="toastMessage">Đã copy link!</span>
     </div>
 
@@ -547,25 +579,20 @@
     <script>
         // Preview Smart Link Interceptor for Canvas
         document.addEventListener('DOMContentLoaded', () => {
-            // Check if we are running inside an iframe (like Canvas Preview)
             const isIframe = window.self !== window.top;
-            
             if (isIframe) {
-                // Target all external links to avoid ERR_BLOCKED_BY_RESPONSE
                 const externalLinks = document.querySelectorAll('a[target="_blank"]');
                 externalLinks.forEach(link => {
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
                         const url = link.href;
-                        
-                        // Copy to clipboard fallback using execCommand for better iFrame compatibility
                         const textArea = document.createElement("textarea");
                         textArea.value = url;
                         document.body.appendChild(textArea);
                         textArea.select();
                         try {
                             document.execCommand('copy');
-                            showToast("Do giới hạn môi trường Preview, hệ thống đã copy link vào bộ nhớ tạm để anh/chị mở bằng Google Chorme nhé!");
+                            showToast("Đã copy link vào bộ nhớ tạm để anh/chị mở bằng Google Chrome!");
                         } catch (err) {
                             showToast("Link: " + url);
                         }
@@ -581,7 +608,6 @@
             const toast = document.getElementById('toast');
             document.getElementById('toastMessage').innerText = message;
             toast.classList.add('show');
-            
             clearTimeout(toastTimeout);
             toastTimeout = setTimeout(() => {
                 toast.classList.remove('show');
@@ -596,7 +622,7 @@
                         entry.target.classList.add('active');
                     }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.05 }); // Giảm threshold xuống 0.05 cho mobile dễ kích hoạt hơn
 
             const revealElements = document.querySelectorAll('.reveal');
             revealElements.forEach(el => observer.observe(el));
@@ -661,7 +687,7 @@
 
             // UI Updates
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner animate-spin"></i> Đang xử lý...';
+            btn.innerHTML = '<i class="fas fa-spinner animate-spin"></i> Xử lý...';
             loading.classList.remove('hidden');
             resultArea.classList.add('hidden');
             emptyState.classList.add('hidden');
@@ -701,7 +727,10 @@
 
         // Allow Enter key to submit
         document.getElementById('topicInput').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') generateIdeas();
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Ngăn bàn phím điện thoại nảy lên nhảy xuống
+                generateIdeas();
+            }
         });
     </script>
 
